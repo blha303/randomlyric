@@ -10,7 +10,7 @@ setup(
     entry_points = {
         "console_scripts": ['randomlyric = randomlyric.randomlyric:main']
         },
-    version = "1.0.3",
+    version = "1.0.4",
     description = "Get a random lyric from a random song, and url to the rest of the lyrics",
     long_description = long_descr,
     author = "Steven Smith",
@@ -20,6 +20,8 @@ setup(
     classifiers = [
         "Development Status :: 4 - Beta",
         "License :: OSI Approved :: MIT License",
+        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 3.4",
         "Programming Language :: Python :: 3",
         "Intended Audience :: End Users/Desktop",
