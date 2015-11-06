@@ -38,7 +38,7 @@ def get_letter(letter=None):
     return outp
 
 def main():
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(prog="randomlyric")
     parser.add_argument("--letter", help="Specify letter instead of allowing random choice")
     parser.add_argument("--artist-href", help="Specifies the artist you want. No preceding slash. Example: m/mutemath.html")
     parser.add_argument("--song-href", help="Specifies the song you want. No preceding slash. Example: lyrics/mutemath/typical.html")
