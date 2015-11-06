@@ -37,16 +37,19 @@ def get_letter(letter=None):
     outp = [a["href"] for a in soup.find('div', {'class': 'main-page'}).findAll('a')]
     return outp
 
+def get_random_lyric(letter=None, artist_href=None, song_href=None):
+    artist_href = random.choice(get_letter(letter)) if not artist_href else artist_href
+    song_href, lyrics = get_random_song_from_artist(artist_href, song_href)
+    lyric = ", ".join(line for line in random.choice(lyrics.split("\n\n")).strip().split("\n") if not line[0] == "[" and line)
+    return "{} ( http://www.azlyrics.com{} )".format(lyric, song_href)
+
 def main():
     parser = argparse.ArgumentParser(prog="randomlyric")
     parser.add_argument("--letter", help="Specify letter instead of allowing random choice")
     parser.add_argument("--artist-href", help="Specifies the artist you want. No preceding slash. Example: m/mutemath.html")
     parser.add_argument("--song-href", help="Specifies the song you want. No preceding slash. Example: lyrics/mutemath/typical.html")
     args = parser.parse_args()
-    artist_href = random.choice(get_letter(args.letter)) if not args.artist_href else args.artist_href
-    song_href, lyrics = get_random_song_from_artist(artist_href, args.song_href)
-    lyric = ", ".join(line for line in random.choice(lyrics.split("\n\n")).strip().split("\n") if not line[0] == "[" and line)
-    print("{} ( http://www.azlyrics.com{} )".format(lyric, song_href))
+    print(get_random_lyric(letter=args.letter, artist_href=args.artist_href, song_href=args.song_href))
     return 0
 
 if __name__ == "__main__":

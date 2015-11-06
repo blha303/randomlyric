@@ -10,7 +10,7 @@ setup(
     entry_points = {
         "console_scripts": ['randomlyric = randomlyric.randomlyric:main']
         },
-    version = "1.0.2",
+    version = "1.0.3",
     description = "Get a random lyric from a random song, and url to the rest of the lyrics",
     long_description = long_descr,
     author = "Steven Smith",
